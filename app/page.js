@@ -18,6 +18,7 @@ import {
   School as SchoolIcon,
   AutoStories as StoryIcon,
 } from "@mui/icons-material";
+import Image from "next/image"; 
 import WaitlistForm from "./UI-components/waitlist";
 import Quiz from "./UI-components/Quizzes";
 export default function Home() {
@@ -73,37 +74,61 @@ export default function Home() {
         </Toolbar>
       </AppBar>
 
-      <Container maxWidth="lg" sx={{ py: 8 }}>
-        <Box sx={{ textAlign: "center", my: 8 }}>
-          <Typography
-            variant="h1"
-            component="h1"
-            gutterBottom
-            sx={{
-              fontWeight: "bold",
-              mb: 5,
-              background: "linear-gradient(90deg, #578596, #579659)", // Gradient colors
-              WebkitBackgroundClip: "text",
-              WebkitTextFillColor: "transparent",
-              backgroundClip: "text",
-              textFillColor: "transparent",
-              fontFamily: "Times New Roman, serif",
-              fontSize: "5rem",
-            }}
-          >
-            Empower Your Learning!
-          </Typography>
+      <Container maxWidth="lg" sx={{ py: 12 }}>
+  <Box sx={{ textAlign: "center", position: "relative" }}>
+    <Image
+      src="/sparkle.png" 
+      alt="Spark Icon"
+      width={70}
+      height={70}
+      style={{
+        position: "absolute",
+        left: "-10px", 
+        top: "-30px", // Lower the top position to bring it closer vertically
+        transform: "rotate(-15deg)", // Slight tilt
+        zIndex: 0,
+      }}
+    />
 
-          <Typography
-            variant="h5"
-            component="h4"
-            gutterBottom
-            sx={{ mb: 4, color: "#dce3dc" }}
-          >
-            Choose your subject, craft your flashcards, <br />
-            and let our smart platform guide your learning journey. <br />➝
-            Effortless Learning ➝ Endless Possibilities!
-          </Typography>
+    <Typography
+      variant="h1"
+      component="h1"
+      gutterBottom
+      sx={{
+        fontWeight: "bold",
+        mb: 1,
+        background: "linear-gradient(90deg, #578596, #579659)",
+        WebkitBackgroundClip: "text",
+        WebkitTextFillColor: "transparent",
+        backgroundClip: "text",
+        textFillColor: "transparent",
+        fontFamily: "Arial, sans-serif",
+        fontSize: "5rem",
+        zIndex: 1,
+        position: "relative",
+      }}
+    >
+      Empower your learning.
+    </Typography>
+      <Typography
+        variant="h2"
+        component="h2"
+        gutterBottom
+        sx={{ mb: 3, color: "#dce3dc", fontFamily: "Arial, sans-serif", fontWeight: "bold" }} 
+      >
+          With QuizzAI
+      </Typography>
+
+      <Typography
+        variant="h5"
+        component="h4"
+        gutterBottom
+        sx={{ mb: 3, color: "#dce3dc", fontWeight: "bold"}} 
+      >
+        Choose your subject, craft your flashcards,
+        and let QuizzAI guide your learning journey. <br />
+        ➝ Effortless Learning ➝ Endless Possibilities!
+      </Typography>
 
           <WaitlistForm />
         </Box>
@@ -223,159 +248,167 @@ export default function Home() {
 
       {/* Pricing Section */}
       <Box sx={{ py: 8, px: 12, mt: 13, mb: 15, textAlign: "center" }}>
-        <Typography
-          variant="h2"
-          component="h2"
-          gutterBottom
-          sx={{ color: "#dce3dc", fontWeight: "bold", mb: 8 }}
-        >
-          Pricing
-        </Typography>
-        <Grid container spacing={4} justifyContent="center">
-          <Grid item xs={12} sm={6} md={4}>
-            <Card
-              sx={{
-                p: 4,
-                textAlign: "center",
-                backgroundColor: "transparent",
-                transition: "transform 0.3s ease-in-out",
-                border: "2px solid grey",
-                borderRadius: "9px",
-                "&:hover": {
-                  transform: "scale(1.05)",
-                  boxShadow: "0 4px 8px rgba(0,0,0,0.2)",
-                  border: "2px solid white",
-                },
-              }}
-            >
-              <CardContent>
-                <Typography
-                  variant="h5"
-                  sx={{ fontWeight: "bold", color: "#fff" }}
-                >
-                  Free Plan
-                </Typography>
-                <Typography
-                  variant="body1"
-                  sx={{ mt: 2, fontSize: "1.5rem", color: "#fff" }}
-                >
-                  $0 / month
-                </Typography>
-                <Typography
-                  variant="body1"
-                  sx={{ mt: 2, fontSize: "1.3rem", color: "#878282" }}
-                >
-                  Access to basic flashcard features.
-                </Typography>
-                <Button
-                  variant="contained"
-                  color="primary"
-                  sx={{ mt: 2, px: 4, py: 2 }}
-                  onClick={() => router.push("/sign-up")}
-                >
-                  Get Started
-                </Button>
-              </CardContent>
-            </Card>
-          </Grid>
-          <Grid item xs={12} sm={6} md={4}>
-            <Card
-              sx={{
-                p: 4,
-                textAlign: "center",
-                backgroundColor: "transparent",
-                transition: "transform 0.3s ease-in-out",
-                border: "2px solid grey",
-                borderRadius: "9px",
-                "&:hover": {
-                  transform: "scale(1.05)",
-                  boxShadow: "0 4px 8px rgba(0,0,0,0.2)",
-                  border: "2px solid white",
-                },
-              }}
-            >
-              <CardContent>
-                <Typography
-                  variant="h5"
-                  sx={{ fontWeight: "bold", color: "#fff" }}
-                >
-                  Basic Plan
-                </Typography>
-                <Typography
-                  variant="body1"
-                  sx={{ mt: 2, fontSize: "1.5rem", color: "#fff" }}
-                >
-                  $9.99 / month
-                </Typography>
-                <Typography
-                  variant="body1"
-                  sx={{ mt: 2, fontSize: "1.3rem", color: "#878282" }}
-                >
-                  Access to basic flashcard features.
-                </Typography>
-                <Button
-                  variant="contained"
-                  color="primary"
-                  sx={{ mt: 2, px: 4, py: 2 }}
-                  onClick={() => {
-                    handleSubmit(9.99);
-                  }}
-                >
-                  Checkout
-                </Button>
-              </CardContent>
-            </Card>
-          </Grid>
-          <Grid item xs={12} sm={6} md={4}>
-            <Card
-              sx={{
-                p: 4,
-                textAlign: "center",
-                backgroundColor: "transparent",
-                transition: "transform 0.3s ease-in-out",
-                border: "2px solid grey",
-                borderRadius: "9px",
-                "&:hover": {
-                  transform: "scale(1.05)",
-                  boxShadow: "0 4px 8px rgba(0,0,0,0.2)",
-                  border: "2px solid white",
-                },
-              }}
-            >
-              <CardContent>
-                <Typography
-                  variant="h5"
-                  sx={{ fontWeight: "bold", color: "#fff" }}
-                >
-                  Pro Plan
-                </Typography>
-                <Typography
-                  variant="body1"
-                  sx={{ mt: 2, fontSize: "1.5rem", color: "#fff" }}
-                >
-                  $19.99 / month
-                </Typography>
-                <Typography
-                  variant="body1"
-                  sx={{ mt: 2, fontSize: "1.3rem", color: "#878282" }}
-                >
-                  Access to basic flashcard features.
-                </Typography>
-                <Button
-                  variant="contained"
-                  color="primary"
-                  sx={{ mt: 2, px: 4, py: 2 }}
-                  onClick={() => {
-                    handleSubmit(19.99);
-                  }}
-                >
-                  Checkout
-                </Button>
-              </CardContent>
-            </Card>
-          </Grid>
-        </Grid>
-      </Box>
+  <Typography
+    variant="h2"
+    component="h2"
+    gutterBottom
+    sx={{ color: "#dce3dc", fontWeight: "bold", mb: 1 }} 
+  >
+    Pricing
+  </Typography>
+  <Typography
+    variant="h5"
+    sx={{ fontWeight: "bold", color: "#fff", mt: 1, mb: 4 }} 
+  >
+    Choose the plan that best fits your learning needs
+  </Typography>
+
+  <Grid container spacing={4} justifyContent="center">
+    <Grid item xs={12} sm={6} md={4}>
+      <Card
+        sx={{
+          p: 4,
+          textAlign: "center",
+          backgroundColor: "transparent",
+          transition: "transform 0.3s ease-in-out",
+          border: "2px solid grey",
+          borderRadius: "9px",
+          "&:hover": {
+            transform: "scale(1.05)",
+            boxShadow: "0 4px 8px rgba(0,0,0,0.2)",
+            border: "2px solid white",
+          },
+        }}
+      >
+        <CardContent>
+          <Typography
+            variant="h5"
+            sx={{ fontWeight: "bold", color: "#fff" }}
+          >
+            Free Plan
+          </Typography>
+          <Typography
+            variant="body1"
+            sx={{ mt: 2, fontSize: "1.5rem", color: "#fff" }}
+          >
+            $0 / month
+          </Typography>
+          <Typography
+            variant="body1"
+            sx={{ mt: 2, fontSize: "1.3rem", color: "#878282" }}
+          >
+            Access to basic flashcard features.
+          </Typography>
+          <Button
+            variant="contained"
+            color="primary"
+            sx={{ mt: 2, px: 2, py: 1.5 }}
+            onClick={() => router.push("/sign-up")}
+          >
+            Get Started
+          </Button>
+        </CardContent>
+      </Card>
+    </Grid>
+    <Grid item xs={12} sm={6} md={4}>
+      <Card
+        sx={{
+          p: 4,
+          textAlign: "center",
+          backgroundColor: "transparent",
+          transition: "transform 0.3s ease-in-out",
+          border: "2px solid grey",
+          borderRadius: "9px",
+          "&:hover": {
+            transform: "scale(1.05)",
+            boxShadow: "0 4px 8px rgba(0,0,0,0.2)",
+            border: "2px solid white",
+          },
+        }}
+      >
+        <CardContent>
+          <Typography
+            variant="h5"
+            sx={{ fontWeight: "bold", color: "#fff" }}
+          >
+            Basic Plan
+          </Typography>
+          <Typography
+            variant="body1"
+            sx={{ mt: 2, fontSize: "1.5rem", color: "#fff" }}
+          >
+            $9.99 / month
+          </Typography>
+          <Typography
+            variant="body1"
+            sx={{ mt: 2, fontSize: "1.3rem", color: "#878282" }}
+          >
+            Access to basic flashcard features.
+          </Typography>
+          <Button
+            variant="contained"
+            color="primary"
+            sx={{ mt: 2, px: 3, py: 1.5 }}
+            onClick={() => {
+              handleSubmit(9.99);
+            }}
+          >
+            Upgrade to Basic
+          </Button>
+        </CardContent>
+      </Card>
+    </Grid>
+    <Grid item xs={12} sm={6} md={4}>
+      <Card
+        sx={{
+          p: 4,
+          textAlign: "center",
+          backgroundColor: "transparent",
+          transition: "transform 0.3s ease-in-out",
+          border: "2px solid grey",
+          borderRadius: "9px",
+          "&:hover": {
+            transform: "scale(1.05)",
+            boxShadow: "0 4px 8px rgba(0,0,0,0.2)",
+            border: "2px solid white",
+          },
+        }}
+      >
+        <CardContent>
+          <Typography
+            variant="h5"
+            sx={{ fontWeight: "bold", color: "#fff" }}
+          >
+            Pro Plan
+          </Typography>
+          <Typography
+            variant="body1"
+            sx={{ mt: 2, fontSize: "1.5rem", color: "#fff" }}
+          >
+            $19.99 / month
+          </Typography>
+          <Typography
+            variant="body1"
+            sx={{ mt: 2, fontSize: "1.3rem", color: "#878282" }}
+          >
+            Access to basic flashcard features.
+          </Typography>
+          <Button
+            variant="contained"
+            color="primary"
+            sx={{ mt: 2, px: 3, py: 1.5}}
+            onClick={() => {
+              handleSubmit(19.99);
+            }}
+          >
+            Upgrade to Pro
+          </Button>
+        </CardContent>
+      </Card>
+    </Grid>
+  </Grid>
+</Box>
+
       {/* Call to Action Section */}
       <Box sx={{ py: 8, px: 10, textAlign: "center", color: "#fff" }}>
         <Typography
@@ -428,7 +461,7 @@ export default function Home() {
         }}
       >
         <Typography variant="body3">
-          © 2024 Flashcard AI. All rights reserved.
+          © 2024 QuizzAI. All rights reserved.
         </Typography>
       </Box>
     </>
